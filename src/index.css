@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overscroll-behavior: none;
+}
+
 button {
   @apply px-2 py-1 bg-white bg-opacity-50 rounded;
 }

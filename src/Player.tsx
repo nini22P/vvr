@@ -25,7 +25,7 @@ const Player = () => {
     if (video) {
       console.log('play', currentFile)
       video.src = currentFile.src
-      video.oncanplay = () => currentFile.src !== './burano.mp4' && video.play()
+      video.oncanplay = () => currentFile.src !== './test.mp4' && video.play()
     }
   }, [currentFile, video])
 
@@ -97,7 +97,9 @@ const PlayerControlBar = ({ video, currentFile, setCurrentFile }
   }
 
   return (
-    <div className='fixed w-full h-fit bottom-0 left-0 bg-white bg-opacity-50 rounded-t p-2 pt-0 gap-2 flex flex-col'>
+    <div
+      className='fixed w-full h-fit bottom-0 left-0 bg-white bg-opacity-50 rounded-t p-2 pt-0 gap-2 flex flex-col z-10'
+    >
       <div className='w-full'>
         <input
           type='range'

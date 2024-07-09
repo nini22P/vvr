@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button {
+  @apply px-2 py-1 bg-white bg-opacity-50 rounded;
+}

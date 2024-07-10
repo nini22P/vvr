@@ -2,10 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  overscroll-behavior: none;
+html {
+  color-scheme: dark;
 }
 
-button {
-  @apply px-2 py-1 bg-white bg-opacity-50 rounded;
+body {
+  overscroll-behavior: none;
+  background-color: #222;
+}
+
+.view360-controls-main,
+.view360-controls-float-left,
+.view360-controls-float-right {
+  pointer-events: all !important;
+}
+
+.view360-controls-top .view360-range {
+  height: 8px !important;
+}
+
+.view360-controls-float-right {
+  padding: 0.5rem 0.5rem 0 0;
 }

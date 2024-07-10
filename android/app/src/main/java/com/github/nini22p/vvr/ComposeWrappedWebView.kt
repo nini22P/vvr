@@ -1,13 +1,21 @@
 package com.github.nini22p.vvr
 
-import android.app.Activity
-import android.content.Intent
 import android.net.Uri
 import android.view.ViewGroup
-import android.webkit.*
+import android.webkit.ValueCallback
+import android.webkit.WebChromeClient
+import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
+import android.webkit.WebSettings
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.webkit.WebViewAssetLoader
@@ -39,6 +47,13 @@ fun ComposeWrappedWebView(modifier: Modifier = Modifier) {
 
                 @Suppress("SetJavaScriptEnabled")
                 settings.javaScriptEnabled = true
+                settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+                settings.domStorageEnabled = true
+
+                settings.allowUniversalAccessFromFileURLs = true
+                settings.allowFileAccess = true
+                settings.allowContentAccess = true
+                settings.allowFileAccessFromFileURLs = true
 
                 webViewClient = object : WebViewClient() {
                     override fun shouldInterceptRequest(

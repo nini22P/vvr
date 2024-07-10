@@ -1,9 +1,9 @@
 import './App.css'
-import Player from './Player'
+import Player from './Player/Player'
 
 function App() {
   return (
-    <div className='w-screen h-screen overflow-hidden'>
+    <div className='w-dvw h-dvh'>
       <Player />
     </div>
   )

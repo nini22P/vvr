@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Video360 from './Video360'
 // import ControlBar from './ControlBar'
 import FileToolbar from './FileToolbar'
@@ -12,33 +12,12 @@ export interface MediaFile {
 const Player = () => {
   const [currentFile, setCurrentFile] = useState<MediaFile>({ name: 'test.mp4', src: './test.mp4' })
 
-  const videoRef = useRef<HTMLVideoElement | null>(null)
-  const video = videoRef.current
-
-  const [isReady, setIsReady] = useState(false)
-
-  useEffect(() => {
-    if (videoRef.current) {
-      setIsReady(true)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (video) {
-      console.log('play', currentFile)
-      video.src = currentFile.src
-      video.oncanplay = () => currentFile.src !== './test.mp4' && video.play()
-    }
-  }, [currentFile, video])
-
   return (
     <div className='w-full h-full relative'>
-      {video && isReady && <Video360 video={video} />}
-      <video ref={videoRef} className='w-full h-full absolute -z-10 hidden' poster='./poster.webp' crossOrigin='anonymous' />
+      <Video360 video={currentFile.src} />
       <View360ControlsFloatLeft>
         <FileToolbar setCurrentFile={setCurrentFile} />
       </View360ControlsFloatLeft>
-      {/* {video && isReady && <ControlBar video={video} currentFile={currentFile} />} */}
     </div>
   )
 }

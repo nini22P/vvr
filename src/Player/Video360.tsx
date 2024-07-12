@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import '@egjs/react-view360/css/view360.min.css'
 
 const Video360 = ({ video }: { video: HTMLVideoElement | string }) => {
-  const projection = useMemo(() => new EquirectProjection({ src: video, video: { autoplay: false } }), [video])
+  const projection = useMemo(() => new EquirectProjection({ src: video, video: { autoplay: true } }), [video])
   return (
     <View360
       projection={projection}

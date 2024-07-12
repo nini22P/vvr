@@ -39,7 +39,7 @@ const FileToolbar = ({ setCurrentFile }: { setCurrentFile: (currentFile: MediaFi
         </Button>
       </div>
 
-      {/* 文件上传 */}
+      {/* 选择文件 */}
       <input
         ref={selectFileRef}
         title='select-file'
@@ -57,6 +57,7 @@ const FileToolbar = ({ setCurrentFile }: { setCurrentFile: (currentFile: MediaFi
               <ModalHeader className="flex flex-col gap-1">输入链接</ModalHeader>
               <ModalBody>
                 <Input
+                  autoFocus
                   placeholder="视频链接"
                   value={link}
                   onChange={(e) => setLink(e.target.value)}
